@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { motion } from "framer-motion";
 import footerLogo from "../../../../public/images/footer-logo.png";
 import facebook from "../../../../public/images/facebook-logo-button.png";
@@ -10,6 +11,18 @@ import RegLogo from "../../../../public/images/regisLogo.png";
 import "./UI/Register.scss";
 
 const Register = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const fakeToken =
+      "123456eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9MASJD#GE&#NDJASDJKASDNK";
+
+    localStorage.setItem("token", fakeToken);
+    navigate("/profile");
+  };
+
   return (
     <div className="register-page">
       <header
@@ -43,6 +56,7 @@ const Register = () => {
           </p>
 
           <motion.form
+            onSubmit={handleSubmit}
             className="reg-form"
             initial="hidden"
             whileInView="visible"
@@ -120,7 +134,7 @@ const Register = () => {
                 <div className="form-group">
                   <label htmlFor="postalCode">Почтовый индекс</label>
                   <input
-                    type="text"
+                    type="number"
                     id="postalCode"
                     placeholder="100000"
                     inputMode="numeric"
@@ -130,7 +144,7 @@ const Register = () => {
                 <div className="form-group">
                   <label htmlFor="phone">Мобильный телефон *</label>
                   <input
-                    type="tel"
+                    type="number"
                     id="phone"
                     placeholder="+998 99 123 45 67"
                     required
@@ -171,7 +185,7 @@ const Register = () => {
                 <div className="form-group">
                   <label htmlFor="contactPhone">Мобильный телефон *</label>
                   <input
-                    type="tel"
+                    type="number"
                     id="contactPhone"
                     placeholder="+998 90 987 65 43"
                     required

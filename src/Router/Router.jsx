@@ -4,6 +4,7 @@ import Entry from "../pages/Entry/Entry";
 import SellerHome from "../pages/seller/SellHome/SellerHome";
 import Home from "../pages/buyer/Home/Home";
 import Register from "../pages/seller/Register/Register";
+import Profie from "../pages/seller/Profile/Profie";
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
         <Route path="/seller" element={<SellerHome />} />
         <Route path="/buyer" element={<Home />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profie />} />
       </Routes>
     </div>
   );

@@ -234,3 +234,9 @@
     font-size: 26px;
   }
 }
+
+@media (max-width: 570px) {
+  .reg-nav-btn {
+    display: none;
+  }
+}

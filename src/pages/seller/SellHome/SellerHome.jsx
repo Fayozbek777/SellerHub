@@ -69,7 +69,31 @@ const SellerHome = () => {
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAuth, setIsAuth] = useState(Boolean(localStorage.getItem("token")));
 
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setIsAuth(Boolean(localStorage.getItem("token")));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
+
+  {
+    isAuth ? (
+      <Link to="/profile">
+        <button className="nav-btn">Мой профиль</button>
+      </Link>
+    ) : (
+      <Link to="/register">
+        <button className="nav-btn">Регистрация</button>
+      </Link>
+    );
+  }
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -95,7 +119,6 @@ const SellerHome = () => {
     setIsMenuOpen(false);
   };
 
-  // Инициализация AOS
   useEffect(() => {
     AOS.init({
       duration: 700,
@@ -124,20 +147,30 @@ const SellerHome = () => {
                 </a>
               </li>
             ))}
+
             <li>
-              <Link to="/register">
-                <button className="nav-btn" id="button">
-                  Регистрация
-                </button>
-              </Link>
+              {isAuth ? (
+                <Link to="/profile">
+                  <button className="nav-btn" id="button">
+                    Мой профиль
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/register">
+                  <button className="nav-btn" id="button">
+                    Регистрация
+                  </button>
+                </Link>
+              )}
             </li>
           </ul>
 
+          {/* Бургер кнопка всегда в JSX */}
           <button
             ref={hamburgerRef}
             className={`hamburger ${isMenuOpen ? "active" : ""}`}
             onClick={(e) => {
-              e.stopPropagation(); // ← важно! предотвращает всплытие клика
+              e.stopPropagation();
               setIsMenuOpen((prev) => !prev);
             }}
             aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
@@ -168,15 +201,23 @@ const SellerHome = () => {
                   </a>
                 </li>
               ))}
+
               <li>
-                <Link to="/" onClick={handleLinkClick}>
-                  <button className="nav-btn mobile-btn">Регистрация</button>
-                </Link>
+                {isAuth ? (
+                  <Link to="/profile" onClick={handleLinkClick}>
+                    <button className="nav-btn mobile-btn">Мой профиль</button>
+                  </Link>
+                ) : (
+                  <Link to="/register" onClick={handleLinkClick}>
+                    <button className="nav-btn mobile-btn">Регистрация</button>
+                  </Link>
+                )}
               </li>
             </ul>
           </motion.div>
         )}
       </AnimatePresence>
+
       <main>
         <section className="backImage" data-aos="fade" data-aos-duration="900">
           <div className="hero-text1">Novo - маркетплейс техники</div>
