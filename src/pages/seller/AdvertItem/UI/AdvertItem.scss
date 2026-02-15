@@ -1,0 +1,226 @@
+.advert-item {
+  background: #222228;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 150, 97, 0.25);
+  }
+}
+
+/* Режим просмотра */
+.view-mode {
+  padding: 24px;
+
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .item-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 15px;
+      color: #a0a0a8;
+
+      span {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px 12px;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .location {
+      font-size: 16px;
+      color: #b0b0b8;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 700;
+      color: #00d68f;
+    }
+  }
+
+  .item-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border: none;
+
+      &.edit-btn {
+        background: #2563eb;
+        color: white;
+
+        &:hover {
+          background: #1d4ed8;
+        }
+      }
+
+      &.delete-btn {
+        background: #ef4444;
+        color: white;
+
+        &:hover {
+          background: #dc2626;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+/* Режим редактирования */
+.edit-mode {
+  padding: 24px;
+
+  .edit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .edit-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+  }
+
+  .edit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    label {
+      font-size: 15px;
+      font-weight: 500;
+      color: #d0d0d5;
+    }
+
+    input {
+      padding: 14px 18px;
+      background: #2a2a2f;
+      border: 1px solid #3a3a40;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+
+      &:focus {
+        outline: none;
+        border-color: #009661;
+        box-shadow: 0 0 0 3px rgba(0, 150, 97, 0.2);
+      }
+    }
+  }
+
+  button {
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+
+    &.save-btn {
+      background: #009661;
+      color: white;
+      border: none;
+
+      &:hover {
+        background: #00b377;
+      }
+    }
+
+    &.cancel-btn {
+      background: transparent;
+      border: 1px solid #555;
+      color: #ccc;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .advert-item {
+    padding: 20px;
+  }
+
+  .edit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .item-header,
+  .item-details,
+  .edit-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-actions,
+  .edit-actions {
+    width: 100%;
+    flex-direction: column;
+
+    button {
+      width: 100%;
+    }
+  }
+}

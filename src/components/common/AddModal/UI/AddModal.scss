@@ -1,0 +1,152 @@
+// AddModal.scss
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background: #1b1b1e;
+  border-radius: 20px;
+  padding: 40px 36px;
+  width: 90%;
+  max-width: 520px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(0, 150, 97, 0.12);
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #aaa;
+  font-size: 32px;
+  font-weight: bold;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: #ff4d4f;
+    color: white;
+    transform: rotate(90deg);
+  }
+}
+
+/* Заголовок и текст в модале */
+.modal-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.modal-text {
+  font-size: 17px;
+  line-height: 1.55;
+  color: #b0b0b8;
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+/* Форма внутри модала (AddItemForm) */
+.add-item-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  input {
+    width: 100%;
+    padding: 16px 20px;
+    background: #252529;
+    border: 1px solid #3a3a3f;
+    border-radius: 12px;
+    color: white;
+    font-size: 17px;
+    transition: all 0.25s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #009661;
+      box-shadow: 0 0 0 4px rgba(0, 150, 97, 0.18);
+    }
+
+    &::placeholder {
+      color: #888;
+    }
+  }
+
+  button[type="submit"] {
+    margin-top: 12px;
+    padding: 18px;
+    background: #009661;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #00b377;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 150, 97, 0.3);
+    }
+
+    &:disabled {
+      background: #555;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
+/* Responsive для маленьких экранов */
+@media (max-width: 520px) {
+  .modal-content {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+  }
+
+  .modal-text {
+    font-size: 16px;
+  }
+
+  .add-item-form input {
+    font-size: 16px;
+    padding: 14px 18px;
+  }
+
+  .close-btn {
+    top: 12px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+  }
+}
