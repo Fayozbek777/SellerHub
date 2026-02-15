@@ -271,6 +271,15 @@
   position: relative;
   z-index: 2;
 }
+@media (max-width: 780px) {
+  .box-content {
+    height: 800px;
+  }
+
+  .role-box {
+    height: 505px;
+  }
+}
 
 .box-icon {
   font-size: 4rem;
