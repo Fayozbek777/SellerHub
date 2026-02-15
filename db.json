@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "id": "358a",
+      "image": "https://via.placeholder.com/150",
+      "name": "Mustang",
+      "year": "2015",
+      "kg": "500",
+      "km": "450000",
+      "locate": "Узбекистан",
+      "price": "24000"
+    }
+  ]
+}
