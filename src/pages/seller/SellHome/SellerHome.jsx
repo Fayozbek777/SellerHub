@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import AOS from "aos";
+import Modal from "../../../components/common/Modal/Modal";
 import "aos/dist/aos.css";
 import "./UI/SellerHome.scss";
 import Logo from "../../../../public/images/logotip.png";
@@ -67,6 +68,7 @@ const SellerHome = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
   const hamburgerRef = useRef(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -179,7 +181,12 @@ const SellerHome = () => {
         <section className="backImage" data-aos="fade" data-aos-duration="900">
           <div className="hero-text1">Novo - маркетплейс техники</div>
           <div className="hero-title">Продавай технику быстро и удобно!</div>
-          <button className="hero-btn">стать продавцем на Novo</button>
+          <button
+            className="hero-btn"
+            onClick={() => setIsModalOpen(true)} // ← тоже открываем
+          >
+            стать продавцом на Novo
+          </button>
         </section>
         <section className="about-company">
           <div
@@ -502,7 +509,6 @@ const SellerHome = () => {
                   >
                     Мы предложим индивидуальные условия сотрудничества!
                   </motion.p>
-
                   <motion.button
                     className="add-phone-btn"
                     initial={{ opacity: 0, scale: 0.95 }}
@@ -511,6 +517,7 @@ const SellerHome = () => {
                     transition={{ duration: 0.7, delay: 0.5 }}
                     whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
                     whileTap={{ scale: 0.97 }}
+                    onClick={() => setIsModalOpen(true)} // ← открываем модал
                   >
                     отдел продаж
                   </motion.button>
@@ -638,6 +645,7 @@ const SellerHome = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
             data-aos="zoom-in"
+            onClick={() => setIsModalOpen(true)}
             data-aos-delay="800"
           >
             СТАТЬ ПРОДАВЦОМ
@@ -756,6 +764,7 @@ const SellerHome = () => {
           </motion.div>
         </section>
       </main>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
