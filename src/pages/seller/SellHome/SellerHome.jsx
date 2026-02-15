@@ -125,7 +125,7 @@ const SellerHome = () => {
               </li>
             ))}
             <li>
-              <Link to="/">
+              <Link to="/register">
                 <button className="nav-btn" id="button">
                   Регистрация
                 </button>

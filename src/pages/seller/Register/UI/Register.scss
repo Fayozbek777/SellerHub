@@ -1,0 +1,236 @@
+.register-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1012 0%, #141416 100%);
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+}
+
+#footer-copyright {
+  position: relative;
+  top: 0;
+}
+/* Навбар */
+.regis-nav {
+  background: #ffffff;
+  padding: 20px 5%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  .nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .reg-logo {
+    height: 44px;
+    width: auto;
+  }
+
+  .reg-nav-btn {
+    padding: 12px 28px;
+    background: #009661;
+    color: white;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: #00b377;
+      transform: translateY(-2px);
+    }
+  }
+}
+
+/* Основной контейнер формы */
+.reg-main {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 24px;
+}
+
+.reg-box {
+  background: #1b1b1e;
+  border-radius: 24px;
+  padding: 64px 56px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.reg-title {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.reg-subtitle {
+  font-size: 20px;
+  color: #a0a0a8;
+  text-align: center;
+  margin-bottom: 64px;
+  line-height: 1.5;
+}
+
+/* Форма */
+.reg-form {
+  display: grid;
+  gap: 56px;
+}
+
+.form-section {
+  .form-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: #ffffff;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+
+  .full-width {
+    grid-column: 1 / -1;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  label {
+    font-size: 18px;
+    font-weight: 500;
+    color: #d0d0d5;
+  }
+
+  input {
+    padding: 18px 24px;
+    background: #252529;
+    border: 1px solid #3a3a3f;
+    border-radius: 14px;
+    color: white;
+    font-size: 18px;
+    transition: all 0.25s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #009661;
+      box-shadow: 0 0 0 4px rgba(0, 150, 97, 0.18);
+    }
+
+    &::placeholder {
+      color: #777;
+    }
+  }
+}
+
+/* Согласие + кнопки */
+.form-agreement {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+
+  .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 18px;
+    color: #c0c0c5;
+    text-align: left;
+    max-width: 600px;
+
+    input {
+      margin-top: 6px;
+      width: 24px;
+      height: 24px;
+      accent-color: #009661;
+    }
+
+    a {
+      color: #009661;
+      text-decoration: underline;
+      &:hover {
+        color: #00d68f;
+      }
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.reg-submit-btn {
+  width: 100%;
+  padding: 20px;
+  background: #009661;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+
+  &:hover {
+    background: #00b377;
+    transform: translateY(-4px);
+  }
+}
+
+.reg-login-link {
+  color: #009661;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: #00d68f;
+    text-decoration: underline;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .reg-box {
+    padding: 48px 40px;
+  }
+  .reg-title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reg-main {
+    margin: 60px auto;
+  }
+  .reg-box {
+    padding: 40px 28px;
+    border-radius: 20px;
+  }
+  .reg-title {
+    font-size: 36px;
+  }
+  .reg-subtitle {
+    font-size: 18px;
+  }
+  .form-title {
+    font-size: 26px;
+  }
+}
